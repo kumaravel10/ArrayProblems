@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ValidateSubSequence {
+	public static boolean isvalidateSubSeq(List<Integer> array,List<Integer> sequence) {
+		int aIndex = 0;
+		int sIndex = 0;
+		
+		while(aIndex < array.size() && sIndex < sequence.size()) {
+			if(array.get(aIndex).equals(sequence.get(sIndex))) {
+				sIndex++;
+			}
+			aIndex++;
+		}
+		
+		return sIndex == sequence.size();
+	}
+	
+	public static void main(String[] arg) {
+		List<Integer> a1 = new ArrayList<>();
+		a1.add(5);
+		a1.add(1);
+		a1.add(22);
+		a1.add(25);
+		a1.add(6);
+		a1.add(-1);
+		a1.add(8);
+		a1.add(10);
+		
+		List<Integer> s1 = new ArrayList<>();
+		s1.add(1);
+		s1.add(6);
+		s1.add(-1);
+		s1.add(8);
+		s1.add(10);
+		
+		System.out.println("Expected result true: "+ ValidateSubSequence.isvalidateSubSeq(a1, s1));
+		
+		List<Integer> a2 = new ArrayList<>();
+		a2.add(1);
+		a2.add(1);
+		a2.add(6);
+		a2.add(1);
+		
+		List<Integer> s2 = new ArrayList<>();
+		s2.add(1);
+		s2.add(1);
+		s2.add(1);
+		s2.add(6);
+		System.out.println("Expected result false: "+ ValidateSubSequence.isvalidateSubSeq(a2, s2));
+	}
+}
